@@ -18,7 +18,6 @@ public class CompanyController {
     @ModelAttribute("companies")
     public Collection<Company> companies() {
         List<Company> companies = companyService.findAll();
-        companies.stream().sorted();
         return companies;
     }
 
@@ -51,4 +50,6 @@ public class CompanyController {
         companyService.delete(id);
         return "redirect:/company";
     }
+
+    //TODO dodać obsługę formularzy
 }

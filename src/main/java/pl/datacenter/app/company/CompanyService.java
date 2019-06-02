@@ -1,8 +1,10 @@
 package pl.datacenter.app.company;
 
+import org.hibernate.Hibernate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import pl.datacenter.app.visitor.Visitor;
 
 import java.util.List;
 
@@ -34,7 +36,15 @@ public class CompanyService {
     }
 
     public List<Company> findAll() {
-        return companyRepository.findAll();
+        return companyRepository.findByOrderByName();
     }
+
+    public Company readWithVisitors(Long id) {
+        Company company = read(id);
+        Hibernate.initialize(company.getVisitors());
+        return company;
+    }
+
+
 
 }

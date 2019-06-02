@@ -16,10 +16,7 @@
                     <a class="nav-link active" href="/company">Firmy</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/history">Historia wizyt</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/visitor">Dodaj nowego gościa</a>
+                    <a class="nav-link" href="/areas">Miejsca</a>
                 </li>
             </ul>
         </div>

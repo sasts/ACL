@@ -15,7 +15,7 @@ public class Company {
     @NotBlank
     private String name;
 
-    @OneToMany(mappedBy = "company", cascade = CascadeType.REMOVE)
+    @OneToMany(mappedBy = "company", cascade = CascadeType.REMOVE, fetch = FetchType.EAGER)
     private List<Visitor> visitors;
 
     public Long getId() {

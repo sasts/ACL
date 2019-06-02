@@ -34,7 +34,7 @@ public class AreaService {
     }
 
     public List<Area> findAll() {
-        return areaRepository.findAll();
+        return areaRepository.findByOrderByName();
     }
 
 

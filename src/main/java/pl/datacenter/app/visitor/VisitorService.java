@@ -4,7 +4,9 @@ import org.hibernate.Hibernate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import pl.datacenter.app.company.Company;
 
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -40,7 +42,8 @@ public class VisitorService {
     }
 
     public List<Visitor> findAllByCompanyId(Long id) {
-        return visitorRepository.findByCompanyId(id);
+        return visitorRepository.findByCompanyIdOrderByFirstName(id);
     }
+
 
 }

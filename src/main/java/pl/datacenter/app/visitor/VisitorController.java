@@ -56,4 +56,6 @@ public class VisitorController {
         return "redirect:/company/visitors/{companyId}";
     }
 
+    //TODO dodać funkcjonalność dodawania pliku do pracownika z listą dotępu, dodać obsługę formularzy
+
 }
