@@ -1,6 +1,7 @@
 package pl.datacenter.app.company;
 
 import org.hibernate.validator.constraints.NotBlank;
+import pl.datacenter.app.file.DBFile;
 import pl.datacenter.app.visitor.Visitor;
 
 import javax.persistence.*;
@@ -15,8 +16,11 @@ public class Company {
     @NotBlank
     private String name;
 
-    @OneToMany(mappedBy = "company", cascade = CascadeType.REMOVE, fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "company", cascade = CascadeType.REMOVE)
     private List<Visitor> visitors;
+
+    @OneToMany(mappedBy = "company", cascade = CascadeType.REMOVE, fetch = FetchType.EAGER)
+    private List<DBFile> files;
 
     public Long getId() {
         return id;
@@ -40,5 +44,13 @@ public class Company {
 
     public void setVisitors(List<Visitor> visitors) {
         this.visitors = visitors;
+    }
+
+    public List<DBFile> getFiles() {
+        return files;
+    }
+
+    public void setFiles(List<DBFile> files) {
+        this.files = files;
     }
 }

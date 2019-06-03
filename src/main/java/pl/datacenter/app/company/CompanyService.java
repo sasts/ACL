@@ -24,7 +24,7 @@ public class CompanyService {
     }
 
     public Company read(Long id) {
-        return companyRepository.findOne(id);
+        return companyRepository.findById(id).orElse(null);
     }
 
     public void update(Company company) {
@@ -32,7 +32,7 @@ public class CompanyService {
     }
 
     public void delete(Long id) {
-        companyRepository.delete(id);
+        companyRepository.deleteById(id);
     }
 
     public List<Company> findAll() {
@@ -44,7 +44,5 @@ public class CompanyService {
         Hibernate.initialize(company.getVisitors());
         return company;
     }
-
-
 
 }

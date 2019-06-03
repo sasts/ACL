@@ -23,7 +23,7 @@ public class EventService {
     }
 
     public Event read(Long id) {
-        return eventRepository.findOne(id);
+        return eventRepository.findById(id).orElse(null);
     }
 
     public void update(Event event) {
@@ -31,7 +31,7 @@ public class EventService {
     }
 
     public void delete(Long id) {
-        eventRepository.delete(id);
+        eventRepository.deleteById(id);
     }
 
     public List<Event> findAll() {

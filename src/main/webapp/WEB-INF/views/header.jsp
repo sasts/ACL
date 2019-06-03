@@ -18,6 +18,9 @@
                 <li class="nav-item">
                     <a class="nav-link" href="/areas">Miejsca</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/files/list">Aktulane listy dostępu</a>
+                </li>
             </ul>
         </div>
     </div>

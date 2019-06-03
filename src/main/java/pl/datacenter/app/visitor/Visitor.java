@@ -5,6 +5,7 @@ import org.hibernate.validator.constraints.NotBlank;
 import pl.datacenter.app.area.Area;
 import pl.datacenter.app.company.Company;
 import pl.datacenter.app.event.Event;
+import pl.datacenter.app.file.DBFile;
 import pl.datacenter.app.visit.Visit;
 
 import javax.persistence.*;
@@ -30,6 +31,9 @@ public class Visitor {
 
     @OneToMany(mappedBy = "visitor")
     private List<Event> events;
+
+    @ManyToOne
+    private DBFile file;
 
     public Long getId() {
         return id;
@@ -83,4 +87,11 @@ public class Visitor {
         return firstName + " " + lastName;
     }
 
+    public DBFile getFile() {
+        return file;
+    }
+
+    public void setFile(DBFile file) {
+        this.file = file;
+    }
 }

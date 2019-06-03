@@ -14,6 +14,7 @@ import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
 import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.validation.beanvalidation.LocalValidatorFactoryBean;
+import org.springframework.web.multipart.support.StandardServletMultipartResolver;
 import org.springframework.web.servlet.LocaleContextResolver;
 import org.springframework.web.servlet.ViewResolver;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
@@ -23,6 +24,7 @@ import org.springframework.web.servlet.i18n.SessionLocaleResolver;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 import org.springframework.web.servlet.view.JstlView;
 import pl.datacenter.app.company.CompanyConverter;
+import pl.datacenter.app.file.FileConverter;
 import pl.datacenter.app.visitor.VisitorConverter;
 
 import javax.persistence.EntityManagerFactory;
@@ -110,6 +112,7 @@ public class AppConfig implements WebMvcConfigurer {
     public void addFormatters(FormatterRegistry registry) {
         registry.addConverter(getCompanyConverter());
         registry.addConverter(getVisitorConverter());
+        registry.addConverter(getFileConverter());
     }
 
     @Bean
@@ -120,6 +123,16 @@ public class AppConfig implements WebMvcConfigurer {
     @Bean
     public VisitorConverter getVisitorConverter() {
         return new VisitorConverter();
+    }
+
+    @Bean
+    public FileConverter getFileConverter() {
+        return new FileConverter();
+    }
+
+    @Bean
+    public StandardServletMultipartResolver multipartResolver() {
+        return new StandardServletMultipartResolver();
     }
 
 }

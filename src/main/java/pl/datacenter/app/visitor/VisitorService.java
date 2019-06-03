@@ -26,7 +26,7 @@ public class VisitorService {
     }
 
     public Visitor read(Long id) {
-        return visitorRepository.findOne(id);
+        return visitorRepository.findById(id).orElse(null);
     }
 
     public void update(Visitor visitor) {
@@ -34,7 +34,7 @@ public class VisitorService {
     }
 
     public void delete(Long id) {
-        visitorRepository.delete(id);
+        visitorRepository.deleteById(id);
     }
 
     public List<Visitor> findAll() {

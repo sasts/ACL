@@ -10,6 +10,6 @@ public class VisitorConverter implements Converter<String, Visitor> {
 
     @Override
     public Visitor convert(String s) {
-        return visitorRepository.findOne(Long.parseLong(s));
+        return visitorRepository.findById(Long.parseLong(s)).orElse(null);
     }
 }

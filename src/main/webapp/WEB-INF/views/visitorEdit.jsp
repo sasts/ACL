@@ -31,6 +31,11 @@
                         <form:input path="id" class="form-control" value="${visitor.id}" readonly="true"/>
                     </div>
                     <div class="col">
+                        <form:select path="file" class="form-control">
+                            <form:options items="${files}" itemLabel="fileName" itemValue="id"/>
+                        </form:select>
+                    </div>
+                    <div class="col">
                         <button class="btn btn-outline-secondary" type="submit">Zmień</button>
                     </div>
                 </div>

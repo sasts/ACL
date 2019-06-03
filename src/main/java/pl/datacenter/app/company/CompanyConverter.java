@@ -10,7 +10,7 @@ public class CompanyConverter implements Converter<String, Company> {
 
     @Override
     public Company convert(String s) {
-        return companyRepository.findOne(Long.parseLong(s));
+        return companyRepository.findById(Long.parseLong(s)).orElse(null);
     }
 
 }

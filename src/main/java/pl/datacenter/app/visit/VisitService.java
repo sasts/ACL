@@ -22,7 +22,7 @@ public class VisitService {
     }
 
     public Visit read(Long id) {
-        return visitRepository.findOne(id);
+        return visitRepository.findById(id).orElse(null);
     }
 
     public void update(Visit visit) {
@@ -30,7 +30,7 @@ public class VisitService {
     }
 
     public void delete(Long id) {
-        visitRepository.delete(id);
+        visitRepository.deleteById(id);
     }
 
     public List<Visit> findAll() {

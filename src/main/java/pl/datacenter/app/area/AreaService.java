@@ -22,7 +22,7 @@ public class AreaService {
     }
 
     public Area read(Long id) {
-        return areaRepository.findOne(id);
+        return areaRepository.findById(id).orElse(null);
     }
 
     public Area update(Area area) {
@@ -30,7 +30,7 @@ public class AreaService {
     }
 
     public void delete(Long id) {
-        areaRepository.delete(id);
+        areaRepository.deleteById(id);
     }
 
     public List<Area> findAll() {
