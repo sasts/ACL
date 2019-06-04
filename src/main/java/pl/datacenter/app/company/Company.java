@@ -1,5 +1,6 @@
 package pl.datacenter.app.company;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.validator.constraints.NotBlank;
 import pl.datacenter.app.file.DBFile;
 import pl.datacenter.app.visitor.Visitor;
@@ -17,9 +18,11 @@ public class Company {
     private String name;
 
     @OneToMany(mappedBy = "company", cascade = CascadeType.REMOVE)
+    @JsonIgnore
     private List<Visitor> visitors;
 
     @OneToMany(mappedBy = "company", cascade = CascadeType.REMOVE, fetch = FetchType.EAGER)
+    @JsonIgnore
     private List<DBFile> files;
 
     public Long getId() {

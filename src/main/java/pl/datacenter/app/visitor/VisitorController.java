@@ -32,7 +32,7 @@ public class VisitorController {
         model.addAttribute("company", companyService.readWithVisitors(companyId));
         List<Visitor> visitors = visitorService.findAllByCompanyId(companyId);
         model.addAttribute("visitors", visitors);
-        model.addAttribute("files", fileService.findAll());
+        model.addAttribute("files", fileService.findAllByCompany(companyId));
         return "visitors";
     }
 
@@ -64,6 +64,6 @@ public class VisitorController {
         return "redirect:/company/visitors/{companyId}";
     }
 
-    //TODO dodać funkcjonalność dodawania pliku do pracownika z listą dotępu, dodać obsługę formularzy
+    //TODO dodać obsługę formularzy
 
 }

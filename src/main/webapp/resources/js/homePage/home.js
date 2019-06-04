@@ -12,12 +12,17 @@ $(document).ready(function () {
         }).done(function (result) {
             visitorsList(result);
         });
+
     });
 
     function visitorsList(array) {
-        var select = $("#visitorSelect");
-        for (var i = 0; i < array.length; i++) {
-            select.appendChild('<option value="' + array[i].visitorId + '">' + array[i].firstName + '</option>option>');
+        var select = $('#visitorSelect');
+        if(array !== null || array == undefined || array.length == 0 || (array.length == 1 && array[0] == "")) {
+            for (var i = 0; i < array.length; i++) {
+                select.append('<option value="' + array[i].Id + '">' + array[i].fullName + '</option>')
+            }
+        } else {
+            select.append("<option>Brak pracowników</option>")
         }
 
     }

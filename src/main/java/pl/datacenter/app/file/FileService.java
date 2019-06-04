@@ -53,4 +53,8 @@ public class FileService {
         return fileRepository.findById(id).orElse(null);
     }
 
+    public List<DBFile> findAllByCompany(Long id) {
+        return fileRepository.findByCompanyIdOrderByFileName(id);
+    }
+
 }

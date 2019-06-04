@@ -1,6 +1,7 @@
 package pl.datacenter.app.file;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import pl.datacenter.app.company.Company;
 import pl.datacenter.app.visitor.Visitor;
 
@@ -25,7 +26,8 @@ public class DBFile {
     public DBFile() {
     }
 
-    @OneToMany(mappedBy = "file")
+    @OneToMany(mappedBy = "file", fetch = FetchType.EAGER)
+    @JsonIgnore
     private List<Visitor> visitors;
 
     @ManyToOne

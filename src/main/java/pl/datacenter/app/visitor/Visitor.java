@@ -1,5 +1,6 @@
 package pl.datacenter.app.visitor;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.annotations.SortNatural;
 import org.hibernate.validator.constraints.NotBlank;
 import pl.datacenter.app.area.Area;
@@ -27,9 +28,11 @@ public class Visitor {
     private Company company;
 
     @OneToMany(mappedBy = "visitor")
+    @JsonIgnore
     private List<Visit> visits;
 
     @OneToMany(mappedBy = "visitor")
+    @JsonIgnore
     private List<Event> events;
 
     @ManyToOne
