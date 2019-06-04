@@ -37,6 +37,7 @@
                     </div>
                     <div class="col">
                         <button class="btn btn-outline-secondary" type="submit">Zmień</button>
+                        <a class="btn btn-outline-secondary" href="/company/visitors/${company.id}" role="button">Anuluj edycję</a>
                     </div>
                 </div>
             </form:form>

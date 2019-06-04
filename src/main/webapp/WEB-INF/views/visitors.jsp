@@ -19,6 +19,7 @@
             <button class="btn btn-outline-secondary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
                 Dodaj pracownika
             </button>
+            <a class="btn btn-outline-secondary" href="/company" role="button">Wróć to listy firm</a>
         </div>
         <div class="collapse" id="collapseExample">
             <form:form method="post" modelAttribute="visitor" action="/company/visitors/{companyId}" enctype="multipart/form-data">
