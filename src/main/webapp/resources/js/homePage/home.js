@@ -8,9 +8,8 @@ $(document).ready(function () {
             data: {},
             type: "GET",
             dataType: "json",
-            contentType: "aplication/json"
+            contentType: "aplication/json; charset=utf-8"
         }).done(function (result) {
-            var select = $('#visitorSelect');
             visitorsList(result);
         });
 
@@ -28,7 +27,7 @@ $(document).ready(function () {
         }
 
     }
-    
+
 });
 
 

@@ -5,13 +5,12 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
+import pl.datacenter.app.area.AreaService;
 import pl.datacenter.app.company.Company;
 import pl.datacenter.app.company.CompanyService;
 import pl.datacenter.app.visit.Visit;
+import pl.datacenter.app.visit.VisitService;
 import pl.datacenter.app.visitor.Visitor;
 import pl.datacenter.app.visitor.VisitorService;
 
@@ -25,10 +24,15 @@ public class homePageController {
 
     private final VisitorService visitorService;
 
+    private final VisitService visitService;
+
+    private final AreaService areaService;
     @Autowired
-    public homePageController(CompanyService companyService, VisitorService visitorService) {
+    public homePageController(CompanyService companyService, VisitorService visitorService, VisitService visitService, AreaService areaService) {
         this.companyService = companyService;
         this.visitorService = visitorService;
+        this.visitService = visitService;
+        this.areaService = areaService;
     }
 
     @GetMapping()
@@ -38,7 +42,14 @@ public class homePageController {
         model.addAttribute("visit", new Visit());
         model.addAttribute("companies", companies);
         model.addAttribute("visitors", visitors);
+        model.addAttribute("areas", areaService.findAll());
         return "home";
+    }
+
+    @PostMapping
+    public String addVisit(@ModelAttribute Visit visit) {
+        visitService.create(visit);
+        return "redirect:/home";
     }
 
     @GetMapping("/{companyId}")
@@ -49,6 +60,8 @@ public class homePageController {
         String json = mapper.writeValueAsString(visitors);
         return json;
     }
+
+
 
 
 

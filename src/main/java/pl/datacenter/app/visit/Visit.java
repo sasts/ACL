@@ -1,8 +1,12 @@
 package pl.datacenter.app.visit;
 
+import org.springframework.format.annotation.DateTimeFormat;
+import pl.datacenter.app.area.Area;
+import pl.datacenter.app.company.Company;
 import pl.datacenter.app.visitor.Visitor;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
 import java.util.Date;
 
 @Entity(name = "visit")
@@ -11,16 +15,26 @@ public class Visit {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(name = "log_in")
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm")
+    private LocalDateTime logIn;
+
+    @Column(name = "log_out")
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm")
+    private LocalDateTime logOut;
+
     @ManyToOne
     private Visitor visitor;
 
-    @Column(name = "log_in")
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date logIn;
+    @ManyToOne
+    private Company company;
 
-    @Column(name = "log_out")
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date logOut;
+    @ManyToOne
+    private Area area;
+
+    public Visit() {
+
+    }
 
     public Long getId() {
         return id;
@@ -38,19 +52,35 @@ public class Visit {
         this.visitor = visitor;
     }
 
-    public Date getLogIn() {
+    public LocalDateTime getLogIn() {
         return logIn;
     }
 
-    public void setLogIn(Date logIn) {
+    public void setLogIn(LocalDateTime logIn) {
         this.logIn = logIn;
     }
 
-    public Date getLogOut() {
+    public LocalDateTime getLogOut() {
         return logOut;
     }
 
-    public void setLogOut(Date logOut) {
+    public void setLogOut(LocalDateTime logOut) {
         this.logOut = logOut;
+    }
+
+    public Company getCompany() {
+        return company;
+    }
+
+    public void setCompany(Company company) {
+        this.company = company;
+    }
+
+    public Area getArea() {
+        return area;
+    }
+
+    public void setArea(Area area) {
+        this.area = area;
     }
 }

@@ -1,6 +1,8 @@
 package pl.datacenter.app.area;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.validator.constraints.NotBlank;
+import pl.datacenter.app.visit.Visit;
 import pl.datacenter.app.visitor.Visitor;
 
 import javax.persistence.*;
@@ -19,6 +21,10 @@ public class Area {
 
     @ManyToMany
     private List<Visitor> visitors;
+
+    @OneToMany(mappedBy = "area")
+    @JsonIgnore
+    private List<Visit> visits;
 
     public Long getId() {
         return id;
@@ -42,5 +48,13 @@ public class Area {
 
     public void setVisitors(List<Visitor> visitors) {
         this.visitors = visitors;
+    }
+
+    public List<Visit> getVisits() {
+        return visits;
+    }
+
+    public void setVisits(List<Visit> visits) {
+        this.visits = visits;
     }
 }
