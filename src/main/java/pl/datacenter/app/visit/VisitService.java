@@ -36,4 +36,8 @@ public class VisitService {
     public List<Visit> findAll() {
         return visitRepository.findAll();
     }
+
+    public List<Visit> findAllWihoutLogOut() {
+        return visitRepository.findByLogOutIsNull();
+    }
 }

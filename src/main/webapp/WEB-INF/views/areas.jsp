@@ -6,7 +6,7 @@
     <script src="<c:url value="/webjars/jquery/3.0.0/jquery.min.js"/>"></script>
     <script src="<c:url value="/webjars/bootstrap/4.3.1/js/bootstrap.min.js"/>"></script>
     <link href="<c:url value="/webjars/bootstrap/4.3.1/css/bootstrap.min.css"/>" rel="stylesheet">
-    <link href='<c:url value="/resources/css/main.css" />' rel="stylesheet">
+    <link href='<c:url value="/resources/css/main.css"/>' rel="stylesheet">
     <title>Miejsca</title>
 </head>
 <body>
@@ -21,7 +21,7 @@
             </button>
         </div>
         <div class="collapse" id="collapseExample">
-            <form:form method="post" modelAttribute="area">
+            <form:form method="post" modelAttribute="area" id="areaForm">
                 <div class="input-group mb-3">
                     <form:input path="name" class="form-control" placeholder="Nazwa miejsca" aria-label="Nazwa miejsca" aria-describedby="button-addon2"/>
                     <div class="input-group-append">

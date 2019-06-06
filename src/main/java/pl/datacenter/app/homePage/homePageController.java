@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import pl.datacenter.app.area.Area;
 import pl.datacenter.app.area.AreaService;
 import pl.datacenter.app.company.Company;
 import pl.datacenter.app.company.CompanyService;
@@ -39,10 +40,13 @@ public class homePageController {
     public String home(Model model, Long companyId) {
         List<Company> companies = companyService.findAll();
         List<Visitor> visitors = visitorService.findAllByCompanyId(companyId);
+        List<Visit> visitsIn = visitService.findAllWihoutLogOut();
+        List<Area> areas = areaService.findAll();
         model.addAttribute("visit", new Visit());
+        model.addAttribute("visitsIn", visitsIn);
         model.addAttribute("companies", companies);
         model.addAttribute("visitors", visitors);
-        model.addAttribute("areas", areaService.findAll());
+        model.addAttribute("areas", areas);
         return "home";
     }
 
@@ -60,17 +64,5 @@ public class homePageController {
         String json = mapper.writeValueAsString(visitors);
         return json;
     }
-
-
-
-
-
-
-
-
-
-
-
-
 
 }

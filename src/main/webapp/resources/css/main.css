@@ -10,7 +10,11 @@
     padding-left: 11px;
 }
 
-.input-group mb-3  {
+.input-group {
     width: 75%;
     margin-left: 10px;
+}
+
+tr td {
+    text-align: center;
 }
