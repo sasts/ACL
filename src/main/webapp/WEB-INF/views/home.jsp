@@ -72,21 +72,24 @@
             $('#datetimepicker2').datetimepicker({
                 sideBySide: true,
                 debug: true,
-                locale: 'pl'
+                locale: 'pl',
+                maskInput: true,
+                format: 'YYYY-MM-DD HH:mm'
             });
 
             $('#datetimepicker3').datetimepicker({
                 sideBySide: true,
                 debug: true,
-                locale: 'pl'
+                locale: 'pl',
+                maskInput: true,
+                format: 'YYYY-MM-DD HH:mm'
             });
 
             <%-- Sprawdzenie czy pobiera wartości formularza --%>
 
             $('#datetimepicker2').click(function () {
-                var date = $("#datetimepicker2").find("input").val();
-                document.getElementById("in").value = date;
-                console.log("in:" + date);
+                var date = $("#datetimepicker2").find('input').val();
+                console.log(date);
 
             })
 

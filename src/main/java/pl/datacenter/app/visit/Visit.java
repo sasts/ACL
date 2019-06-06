@@ -7,7 +7,6 @@ import pl.datacenter.app.visitor.Visitor;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
-import java.util.Date;
 
 @Entity(name = "visit")
 public class Visit {
@@ -83,4 +82,5 @@ public class Visit {
     public void setArea(Area area) {
         this.area = area;
     }
+
 }
