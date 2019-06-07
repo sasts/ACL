@@ -45,4 +45,13 @@ public class CompanyService {
         return company;
     }
 
+    public boolean existsByName(String name) {
+        boolean companyExists = true;
+
+        if(companyRepository.findByName(name) == null) {
+            companyExists = false;
+        }
+        return companyExists;
+    }
+
 }

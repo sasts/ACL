@@ -9,7 +9,7 @@
     <link href='<c:url value="/resources/css/main.css"/>' rel="stylesheet">
     <script>
         function confirmDelete(id, name) {
-            if (confirm("Czy chcesz usunąc plik \"" + name + "\"?")) {
+            if (confirm("Czy chcesz usunąć plik \"" + name + "\"?")) {
                 window.location.href = "/files/delete/" + id;
             }
         }

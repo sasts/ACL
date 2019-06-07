@@ -1,7 +1,6 @@
 package pl.datacenter.app.visitor;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import org.hibernate.annotations.SortNatural;
 import org.hibernate.validator.constraints.NotBlank;
 import pl.datacenter.app.area.Area;
 import pl.datacenter.app.company.Company;
@@ -18,10 +17,10 @@ public class Visitor {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @NotBlank
+    @NotBlank(message = "Nie może być puste")
     private String firstName;
 
-    @NotBlank
+    @NotBlank(message = "Nie może być puste")
     private String lastName;
 
     @ManyToOne

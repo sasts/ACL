@@ -3,8 +3,10 @@ package pl.datacenter.app.company;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.Collection;
 import java.util.List;
 
@@ -28,9 +30,12 @@ public class CompanyController {
     }
 
     @PostMapping()
-    public String add(@ModelAttribute Company company){
+    public String add(@ModelAttribute("company") @Valid Company company, BindingResult result){
+        if(result.hasErrors()){
+            return "companies";
+        }
         companyService.create(company);
-        return "redirect:company";
+        return "redirect:/company";
     }
 
     @GetMapping("/edit/{id}")
@@ -40,7 +45,10 @@ public class CompanyController {
     }
 
     @PostMapping("/edit/{id}")
-    public String edit(@ModelAttribute Company company) {
+    public String edit(@ModelAttribute("company") Company company, BindingResult result) {
+        if(result.hasErrors()) {
+            return "companyEdit";
+        }
         companyService.update(company);
         return "redirect:/company";
     }
@@ -51,5 +59,5 @@ public class CompanyController {
         return "redirect:/company";
     }
 
-    //TODO dodać obsługę formularzy
+
 }

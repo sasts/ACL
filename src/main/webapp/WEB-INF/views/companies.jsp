@@ -8,6 +8,13 @@
     <link href="<c:url value="/webjars/bootstrap/4.3.1/css/bootstrap.min.css"/>" rel="stylesheet">
     <link href='<c:url value="/resources/css/main.css"/>' rel="stylesheet">
     <title>Lista firm</title>
+    <script>
+        function confirmDeleteCompany(id, name) {
+            if (confirm("Czy chcesz usunąć firmę \"" + name + "\"? Spowoduje to usunięcie pracowników, list dostępu i wizyt.")) {
+                window.location.href = "/company/delete/" + id;
+            }
+        }
+    </script>
 </head>
 <body>
 
@@ -28,6 +35,7 @@
                         <button class="btn btn-outline-secondary" type="submit" id="button-addon2">Dodaj</button>
                     </div>
                 </div>
+                <form:errors path="name" element="div" cssClass="text-danger" cssStyle="padding-left: 10px"/>
             </form:form>
         </div>
     </div>
@@ -43,7 +51,7 @@
                         <td width="80%"><a href="/company/visitors/${comp.id}">${comp.name}</a></td>
                         <td width="20%">
                             <a href="/company/edit/${comp.id}" class="btn btn-outline-secondary">Edytuj</a>
-                            <a href="/company/delete/${comp.id}" class="btn btn-outline-secondary">Usuń</a>
+                            <a href="#" onclick="confirmDeleteCompany(${comp.id}, '${comp.name}')" class="btn btn-outline-secondary">Usuń</a><br>
                         </td>
                     </tr>
                 </c:forEach>
@@ -51,5 +59,6 @@
         </div>
     </div>
 </div>
+
 </body>
 </html>

@@ -11,10 +11,16 @@
 }
 
 .input-group {
-    width: 75%;
+    width: 80%;
     margin-left: 10px;
+}
+
+#error {
+    padding-left: 10px;
+
 }
 
 tr td {
     text-align: center;
 }
+

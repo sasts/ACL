@@ -3,10 +3,12 @@ package pl.datacenter.app.visitor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import pl.datacenter.app.company.CompanyService;
 import pl.datacenter.app.file.FileService;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @Controller
@@ -37,7 +39,10 @@ public class VisitorController {
     }
 
     @PostMapping()
-    public String addVisitor(@ModelAttribute Visitor visitor) {
+    public String addVisitor(@ModelAttribute("visitor") @Valid Visitor visitor, BindingResult result) {
+        if(result.hasErrors()) {
+            return "visitors";
+        }
         visitorService.create(visitor);
         Long id = visitor.getCompany().getId();
         return "redirect:/company/visitors/" + id;
@@ -52,7 +57,10 @@ public class VisitorController {
     }
 
     @PostMapping("/edit/{visitorId}")
-    public String editVisitor(@ModelAttribute Visitor visitor) {
+    public String editVisitor(@ModelAttribute("visitor") Visitor visitor, BindingResult result) {
+        if(result.hasErrors()) {
+            return "visitorEdit";
+        }
         visitorService.update(visitor);
         Long id = visitor.getCompany().getId();
         return "redirect:/company/visitors/" + id;

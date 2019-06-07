@@ -19,6 +19,7 @@
             <button class="btn btn-outline-secondary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
                 Dodaj miejsce
             </button>
+
         </div>
         <div class="collapse" id="collapseExample">
             <form:form method="post" modelAttribute="area" id="areaForm">
@@ -28,6 +29,7 @@
                         <button class="btn btn-outline-secondary" type="submit" id="button-addon2">Dodaj</button>
                     </div>
                 </div>
+                <form:errors path="name" element="div" cssClass="text-danger" cssStyle="padding-left: 10px"/>
             </form:form>
         </div>
     </div>

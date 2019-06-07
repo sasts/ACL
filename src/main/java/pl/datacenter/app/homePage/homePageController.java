@@ -56,7 +56,7 @@ public class homePageController {
         return "redirect:/home";
     }
 
-    @GetMapping("/{companyId}")
+    @GetMapping(value = "/{companyId}", produces = "aplication/json;charset=UTF-8")
     @ResponseBody
     public String visitorsList(@PathVariable Long companyId) throws JsonProcessingException {
         List<Visitor> visitors = visitorService.findAllByCompanyId(companyId);

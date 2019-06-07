@@ -3,8 +3,10 @@ package pl.datacenter.app.area;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.Collection;
 import java.util.List;
 
@@ -33,7 +35,10 @@ public class AreaController {
     }
 
     @PostMapping
-    public String add(@ModelAttribute Area area) {
+    public String add(@ModelAttribute("area") @Valid Area area, BindingResult result) {
+        if(result.hasErrors()){
+            return "areas";
+        }
         areaService.create(area);
         return "redirect:areas";
     }
@@ -45,7 +50,10 @@ public class AreaController {
     }
 
     @PostMapping("/edit/{id}")
-    public String edit(@ModelAttribute Area area) {
+    public String edit(@ModelAttribute("area") @Valid Area area, BindingResult result) {
+        if(result.hasErrors()) {
+            return "areaEdit";
+        }
         areaService.update(area);
         return "redirect:/areas";
     }

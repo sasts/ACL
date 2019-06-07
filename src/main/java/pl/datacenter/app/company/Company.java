@@ -3,6 +3,8 @@ package pl.datacenter.app.company;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.validator.constraints.NotBlank;
 import pl.datacenter.app.file.DBFile;
+import pl.datacenter.app.unique.UniqueCompany;
+import pl.datacenter.app.visit.Visit;
 import pl.datacenter.app.visitor.Visitor;
 
 import javax.persistence.*;
@@ -14,7 +16,8 @@ public class Company {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @NotBlank
+    @NotBlank(message = "Nie może być puste")
+    @UniqueCompany
     private String name;
 
     @OneToMany(mappedBy = "company", cascade = CascadeType.REMOVE)
@@ -24,6 +27,10 @@ public class Company {
     @OneToMany(mappedBy = "company", cascade = CascadeType.REMOVE, fetch = FetchType.EAGER)
     @JsonIgnore
     private List<DBFile> files;
+
+    @OneToMany(mappedBy = "company", cascade = CascadeType.REMOVE)
+    @JsonIgnore
+    private List<Visit> visits;
 
     public Long getId() {
         return id;
@@ -55,5 +62,13 @@ public class Company {
 
     public void setFiles(List<DBFile> files) {
         this.files = files;
+    }
+
+    public List<Visit> getVisits() {
+        return visits;
+    }
+
+    public void setVisits(List<Visit> visits) {
+        this.visits = visits;
     }
 }

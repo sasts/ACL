@@ -8,4 +8,6 @@ public interface AreaRepository extends JpaRepository<Area, Long> {
 
     List<Area> findByOrderByName();
 
+    Area findByName(String name);
+
 }

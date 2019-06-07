@@ -37,6 +37,15 @@ public class AreaService {
         return areaRepository.findByOrderByName();
     }
 
+    public boolean existsByName(String name) {
+        boolean areaExists = true;
+
+        if(areaRepository.findByName(name) == null) {
+            areaExists = false;
+        }
+        return areaExists;
+    }
+
 
 
 

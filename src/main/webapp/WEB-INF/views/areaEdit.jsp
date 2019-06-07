@@ -19,11 +19,12 @@
         <div class="card-body">
             <form:form method="post" modelAttribute="area">
                 <div class="input-group mb-3">
-                    <form:input path="name" class="form-control" aria-describedby="button-addon2"/>
+                    <form:input path="name" class="form-control" aria-describedby="button-addon2"/><br>
                     <div class="input-group-append">
                         <button class="btn btn-outline-secondary" type="submit" id="button-addon2">Zmień</button>
                     </div>
                 </div>
+                <form:errors path="name" element="div" cssClass="text-danger" cssStyle="padding-left: 10px"/>
             </form:form>
         </div>
     </div>

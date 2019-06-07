@@ -2,6 +2,7 @@ package pl.datacenter.app.area;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.validator.constraints.NotBlank;
+import pl.datacenter.app.unique.UniqueArea;
 import pl.datacenter.app.visit.Visit;
 import pl.datacenter.app.visitor.Visitor;
 
@@ -15,8 +16,9 @@ public class Area {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @NotBlank
+    @NotBlank(message = "Nie może być puste")
     @Column(unique = true)
+    @UniqueArea
     private String name;
 
     @ManyToMany

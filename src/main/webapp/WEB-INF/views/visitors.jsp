@@ -8,6 +8,13 @@
     <link href="<c:url value="/webjars/bootstrap/4.3.1/css/bootstrap.min.css"/>" rel="stylesheet">
     <link href='<c:url value="/resources/css/main.css"/>' rel="stylesheet">
     <title>Pracownicy</title>
+    <script>
+        function confirmDeleteVisitor(companyId, visitorId, name) {
+            if (confirm("Czy chcesz usunąć pracownika: \"" + name + "\"?")) {
+                window.location.href = "/company/visitors/" + companyId + "/delete/" + visitorId;
+            }
+        }
+    </script>
 </head>
 <body>
 
@@ -19,7 +26,7 @@
             <button class="btn btn-outline-secondary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
                 Dodaj pracownika
             </button>
-            <a class="btn btn-outline-secondary" href="/company" role="button">Wróć to listy firm</a>
+            <a class="btn btn-outline-secondary" href="<c:url value="/company"/>" role="button">Wróć to listy firm</a>
         </div>
         <div class="collapse" id="collapseExample">
             <form:form method="post" modelAttribute="visitor" action="/company/visitors/{companyId}" enctype="multipart/form-data">
@@ -43,6 +50,19 @@
                         <button class="btn btn-outline-secondary" type="submit">Dodaj</button>
                     </div>
                 </div>
+                <div class="form-row" id="errorForm">
+                    <div class="col">
+                        <form:errors path="firstName" element="div" cssClass="text-danger"/>
+                    </div>
+                    <div class="col">
+                        <form:errors path="lastName" element="div" cssClass="text-danger"/>
+                    </div>
+                    <div class="col" style="color: red">
+                        <form:errors path="file" element="div" cssClass="text-danger">
+                            Musisz dołączyć listę dostępu.
+                        </form:errors>
+                    </div>
+                </div>
             </form:form>
         </div>
     </div>
@@ -60,7 +80,7 @@
                         <td width="20%">${vis.file.fileName}</td>
                         <td width="20%">
                             <a href="/company/visitors/${company.id}/edit/${vis.id}" class="btn btn-outline-secondary">Edytuj</a>
-                            <a href="/company/visitors/${company.id}/delete/${vis.id}" class="btn btn-outline-secondary">Usuń</a>
+                            <a href="#" onclick="confirmDeleteVisitor(${company.id}, ${vis.id}, '${vis.fullName}')" class="btn btn-outline-secondary">Usuń</a><br>
                         </td>
                     </tr>
                 </c:forEach>
