@@ -6,9 +6,9 @@
     <title>Header</title>
 </head>
 <body>
-<nav class="navbar navbar-light" style="background-color: #e3f2fd;" charset="UTF-8">
+<nav class="navbar navbar-dark bg-dark" style="background-color: #e3f2fd;" charset="UTF-8">
     <div class="container">
-        <a class="navbar-brand" href="/home"><i class="fas fa-server"></i>Data Center</a><a class="navbar-brand" href="/home"><i class="fas fa-home fa-lg" class="navbar-brand"></i></a>
+        <a class="navbar-brand" href="<c:url value="/home"/>"><i class="fas fa-server"></i>Data Center</a><a class="navbar-brand" href="/home"><i class="fas fa-home fa-lg" class="navbar-brand"></i></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>

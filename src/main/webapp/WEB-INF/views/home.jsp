@@ -56,7 +56,7 @@
                 },
                 events: [
                     {
-                        title: 'RELAX',
+                        title: 'JAVA',
                         start: '2019-06-08',
                         allDay: true,
                     },
