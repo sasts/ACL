@@ -52,7 +52,8 @@ public class VisitorController {
     public String editVisitor(@PathVariable Long visitorId, @PathVariable Long companyId, Model model) {
         model.addAttribute("visitor", visitorService.read(visitorId));
         model.addAttribute("company", companyService.read(companyId));
-        model.addAttribute("files", fileService.findAll());
+        model.addAttribute("files", fileService.findAllByCompany(companyId));
+
         return "visitorEdit";
     }
 
@@ -72,6 +73,5 @@ public class VisitorController {
         return "redirect:/company/visitors/{companyId}";
     }
 
-    //TODO dodać obsługę formularzy
 
 }
