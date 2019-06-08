@@ -8,20 +8,20 @@
 <body>
 <nav class="navbar navbar-light" style="background-color: #e3f2fd;" charset="UTF-8">
     <div class="container">
-        <a class="navbar-brand" href="/home">Data Center</a><a class="navbar-brand" href="/home"><i class="fas fa-home" class="navbar-brand"></i></a>
+        <a class="navbar-brand" href="/home"><i class="fas fa-server"></i>Data Center</a><a class="navbar-brand" href="/home"><i class="fas fa-home fa-lg" class="navbar-brand"></i></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="nav justify-content-center">
                 <li class="nav-item">
-                    <a class="nav-link active" href="/company">Firmy</a>
+                    <a class="nav-link active" href="/company"><i class="far fa-building"></i>Firmy</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/areas">Miejsca</a>
+                    <a class="nav-link" href="/areas"><i class="fas fa-map-marked-alt"></i>Miejsca</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/files/list">Aktulane listy dostępu</a>
+                    <a class="nav-link" href="/files/list"><i class="far fa-file-alt"></i>Aktulane listy dostępu</a>
                 </li>
             </ul>
         </div>

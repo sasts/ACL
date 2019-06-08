@@ -53,7 +53,16 @@
                     left: 'prev,next today',
                     center: 'title',
                     right: 'dayGridMonth,timeGridWeek,timeGridDay,listWeek'
-                }
+                },
+                events: [
+                    {
+                        title: 'RELAX',
+                        start: '2019-06-08',
+                        allDay: true,
+                    },
+
+                ],
+
             });
 
             calendar.render();

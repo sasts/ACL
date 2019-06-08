@@ -48,7 +48,7 @@
                 </tr>
                 <c:forEach items="${companies}" var="comp">
                     <tr>
-                        <td width="80%"><a href="/company/visitors/${comp.id}">${comp.name}</a></td>
+                        <td width="80%"><a href="/company/visitors/${comp.id}"><i class="fas fa-users"></i>${comp.name}</a></td>
                         <td width="20%">
                             <a href="/company/edit/${comp.id}" class="btn btn-outline-secondary">Edytuj</a>
                             <a href="#" onclick="confirmDeleteCompany(${comp.id}, '${comp.name}')" class="btn btn-outline-secondary">Usuń</a><br>

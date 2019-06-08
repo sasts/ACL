@@ -6,5 +6,5 @@ import java.util.List;
 
 public interface VisitRepository extends JpaRepository<Visit, Long> {
 
-    List<Visit> findByLogOutIsNull();
+    List<Visit> findByLogOutIsNullOrderByLogIn();
 }

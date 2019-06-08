@@ -9,7 +9,8 @@
     <link href='<c:url value="/resources/css/main.css"/>' rel="stylesheet">
     <script>
         function confirmDelete(id, name) {
-            if (confirm("Czy chcesz usunąć plik \"" + name + "\"?")) {
+            if (confirm("Czy chcesz usunąć plik \"" + name + "\"? " + '\n' +
+                "Sprawdź czy lista została odłączona od pracowników.")) {
                 window.location.href = "/files/delete/" + id;
             }
         }

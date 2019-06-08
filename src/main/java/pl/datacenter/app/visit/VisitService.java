@@ -38,6 +38,6 @@ public class VisitService {
     }
 
     public List<Visit> findAllWihoutLogOut() {
-        return visitRepository.findByLogOutIsNull();
+        return visitRepository.findByLogOutIsNullOrderByLogIn();
     }
 }
